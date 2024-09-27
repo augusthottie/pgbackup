@@ -12,5 +12,13 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/AugustHottie/pgbackup',
-    packages=find_packages('src')
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
+    install_requires=['boto3'],
+    python_requires='>=3.10',
+    entry_points={
+        'console_scripts': [
+            'pgbackup=pgbackup.cli:main',
+        ],
+    }
 )
